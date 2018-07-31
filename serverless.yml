@@ -1,0 +1,16 @@
+service: letspong
+app: letspong
+tenant: dsykes
+
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+
+functions:
+  app:
+    handler: server.handler
+    events:
+    - http: ANY /
+    - http: 'ANY {proxy+}'
